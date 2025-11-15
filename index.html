@@ -266,22 +266,52 @@
       <h2>Join the BoxLoop Waitlist</h2>
       <p>Register your interest and be first to know when collections start in your street.</p>
 
-      <!-- Replace the Formspree URL with your own endpoint -->
+      <!-- This posts directly to your Google Form -->
       <form
-        action="https://formspree.io/f/YOUR_FORM_ID"
+        action="https://docs.google.com/forms/d/e/1FAIpQLSf5SdL3-uPARUQDy1XxKs7PSJn0KoZ78tV0as7VnTzhY0mMog/formResponse"
         method="POST"
+        target="_blank"
       >
-        <label for="name">Your Name</label>
-        <input id="name" name="name" type="text" placeholder="Jane Doe" required />
+        <!-- IMPORTANT: replace ENTRY_ID_* with the real entry IDs from your Google Form -->
 
-        <label for="email">Email Address</label>
-        <input id="email" name="email" type="email" placeholder="you@example.com" required />
+        <label for="first-name">First name</label>
+        <input
+          id="first-name"
+          name="entry.ENTRY_ID_FIRST_NAME"
+          type="text"
+          placeholder="Jane"
+          required
+        />
+
+        <label for="last-name">Last name</label>
+        <input
+          id="last-name"
+          name="entry.ENTRY_ID_LAST_NAME"
+          type="text"
+          placeholder="Doe"
+          required
+        />
+
+        <label for="mobile">Mobile number</label>
+        <input
+          id="mobile"
+          name="entry.ENTRY_ID_MOBILE"
+          type="tel"
+          placeholder="07..."
+          required
+        />
 
         <label for="postcode">Postcode</label>
-        <input id="postcode" name="postcode" type="text" placeholder="TS17 ..." required />
+        <input
+          id="postcode"
+          name="entry.ENTRY_ID_POSTCODE"
+          type="text"
+          placeholder="TS17 ..."
+          required
+        />
 
-        <!-- Hidden field so you know what they signed up for -->
-        <input type="hidden" name="plan" value="BoxLoop £24.95 / month – Tue & Thu collections" />
+        <!-- Optional: flag that this came from the website -->
+        <input type="hidden" name="entry.ENTRY_ID_SOURCE" value="Website waitlist" />
 
         <button class="btn-primary" type="submit">Join Waitlist</button>
       </form>
