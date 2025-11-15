@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>BoxLoop – Flexible Cardboard Pickup & Recycling</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    :root {
+      --yellow: #f4c400;
+      --yellow-dark: #e3b300;
+      --black: #111111;
+      --grey: #f7f7f7;
+      --text: #222222;
+      --max-width: 1000px;
+    }
+
+    body {
+      margin: 0;
+      font-family: system-ui, Arial, sans-serif;
+      background: #fff;
+      color: var(--text);
+    }
+
+    header {
+      background: var(--black);
+      padding: 1rem 1.5rem;
+      color: white;
+    }
+
+    .nav {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo-wrap {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .logo-wrap img {
+      height: 40px;
+      width: 40px;
+    }
+
+    .nav-cta {
+      background: var(--yellow);
+      color: var(--black);
+      padding: 0.5rem 1rem;
+      border-radius: 999px;
+      border: none;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .hero {
+      background: var(--black);
+      color: white;
+      padding: 3rem 1.5rem;
+    }
+
+    .hero-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+    }
+
+    @media (max-width: 780px) {
+      .hero-inner {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .hero img {
+      width: 120px;
+      margin-bottom: 1rem;
+    }
+
+    .hero h1 {
+      font-size: clamp(2rem, 4vw, 2.6rem);
+      margin-bottom: 0.6rem;
+    }
+
+    .hero h1 span {
+      color: var(--yellow);
+    }
+
+    .form-card {
+      background: #fff;
+      color: var(--text);
+      border-radius: 10px;
+      padding: 1.5rem;
+      box-shadow: 0 15px 30px rgba(0,0,0,0.25);
+    }
+
+    .form-card label {
+      display: block;
+      font-size: 0.8rem;
+      margin-bottom: 0.3rem;
+    }
+
+    .form-card input {
+      width: 100%;
+      padding: 0.7rem;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      margin-bottom: 0.8rem;
+      font-size: 0.9rem;
+    }
+
+    .btn-primary {
+      width: 100%;
+      background: var(--yellow);
+      color: var(--black);
+      border: none;
+      padding: 0.8rem;
+      font-weight: bold;
+      border-radius: 999px;
+      cursor: pointer;
+      margin-top: 0.3rem;
+    }
+
+    .section {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 3rem 1.5rem;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3,1fr);
+      gap: 1.5rem;
+    }
+
+    @media (max-width: 900px) {
+      .grid-3 {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .card {
+      background: var(--grey);
+      padding: 1.5rem;
+      border-radius: 10px;
+    }
+
+    /* NEW PRICING TABLE */
+    .pricing-table {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
+      margin-top: 1.5rem;
+    }
+
+    @media (max-width: 900px) {
+      .pricing-table {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .plan {
+      background: var(--black);
+      color: white;
+      padding: 2rem 1.5rem;
+      border-radius: 10px;
+      text-align: center;
+    }
+
+    .plan h3 {
+      margin: 0 0 0.5rem;
+    }
+
+    .price {
+      font-size: 2rem;
+      font-weight: bold;
+      color: var(--yellow);
+      margin: 1rem 0;
+    }
+
+    .plan ul {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 1.5rem;
+      font-size: 0.9rem;
+      line-height: 1.5rem;
+    }
+
+    .plan button {
+      background: var(--yellow);
+      color: var(--black);
+      border: none;
+      padding: 0.7rem 1.2rem;
+      font-weight: bold;
+      border-radius: 999px;
+      cursor: pointer;
+    }
+
+    footer {
+      background: #111;
+      color: #aaa;
+      padding: 1rem 1.5rem;
+      font-size: 0.8rem;
+      text-align: center;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="nav">
+    <div class="logo-wrap">
+      <img src="logo.png" alt="BoxLoop Logo" />
+      <strong>BOXLOOP</strong>
+    </div>
+    <button class="nav-cta" onclick="document.getElementById('waitlist').scrollIntoView({behavior:'smooth'});">
+      Join Waitlist
+    </button>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-inner">
+    <div>
+      <img src="logo.png" alt="BoxLoop Logo" />
+      <h1>Flexible <span>cardboard pickup</span> without the hassle.</h1>
+      <p>Request pickups anytime through our online portal. We collect from your doorstep and keep your cardboard in the recycling loop.</p>
+    </div>
+
+    <div class="form-card" id="waitlist">
+      <h2>Join the BoxLoop Waitlist</h2>
+      <p>Be first to access discounted early prices.</p>
+
+      <form action="#" method="post">
+        <label>Your Name</label>
+        <input type="text" placeholder="Jane Doe" required />
+
+        <label>Email Address</label>
+        <input type="email" placeholder="you@example.com" required />
+
+        <label>Postcode</label>
+        <input type="text" placeholder="TS17 ..." required />
+
+        <button class="btn-primary">Join Waitlist</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <h2>How BoxLoop Works</h2>
+
+  <div class="grid-3">
+    <div class="card">
+      <h3>1. Request a Pickup</h3>
+      <p>Use our online portal to select a day and request your pickup.</p>
+    </div>
+    <div class="card">
+      <h3>2. Leave Your Cardboard Out</h3>
+      <p>Flatten and stack your boxes. Place them by your door or designated spot.</p>
+    </div>
+    <div class="card">
+      <h3>3. We Collect & Recycle</h3>
+      <p>Your cardboard is taken to licensed recycling facilities -- zero landfill.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <h2>Choose Your Plan</h2>
+  <p>Simple monthly plans billed automatically. Cancel anytime.</p>
+
+  <div class="pricing-table">
+    <div class="plan">
+      <h3>Lite</h3>
+      <div class="price">£8.99</div>
+      <ul>
+        <li>1 pickup per week</li>
+        <li>On-demand booking</li>
+        <li>Doorstep collection</li>
+      </ul>
+      <button>Join Waitlist</button>
+    </div>
+
+    <div class="plan">
+      <h3>Flex</h3>
+      <div class="price">£14.99</div>
+      <ul>
+        <li>2 pickups per week</li>
+        <li>Online portal scheduling</li>
+        <li>Oversized boxes allowed</li>
+      </ul>
+      <button>Join Waitlist</button>
+    </div>
+
+    <div class="plan">
+      <h3>Max</h3>
+      <div class="price">£29.99</div>
+      <ul>
+        <li>3 pickups per week</li>
+        <li>Priority pickup windows</li>
+        <li>High volume accepted</li>
+      </ul>
+      <button>Join Waitlist</button>
+    </div>
+
+    <div class="plan">
+      <h3>Business</h3>
+      <div class="price">£49.99</div>
+      <ul>
+        <li>Up to 5 pickups per week</li>
+        <li>Bulk cardboard loads</li>
+        <li>Commercial recycling receipts</li>
+      </ul>
+      <button>Join Waitlist</button>
+    </div>
+  </div>
+</section>
+
+<footer>
+  © <span id="year"></span> BoxLoop -- All rights reserved.
+</footer>
+
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>
