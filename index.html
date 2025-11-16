@@ -104,6 +104,29 @@
       color: var(--yellow);
     }
 
+    .hero-list {
+      list-style: none;
+      padding: 0;
+      margin: 1rem 0 0.5rem;
+      font-size: 0.9rem;
+    }
+
+    .hero-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.4rem;
+      margin-bottom: 0.25rem;
+    }
+
+    .hero-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: var(--yellow);
+      margin-top: 0.45rem;
+      flex-shrink: 0;
+    }
+
     .form-card {
       background: #fff;
       color: var(--text);
@@ -143,6 +166,13 @@
       margin-bottom: 1rem;
     }
 
+    .section p.lead {
+      margin-top: 0;
+      margin-bottom: 1.5rem;
+      font-size: 0.95rem;
+      color: #444;
+    }
+
     .grid-3 {
       display: grid;
       grid-template-columns: repeat(3,1fr);
@@ -159,6 +189,11 @@
       background: var(--grey);
       padding: 1.5rem;
       border-radius: 10px;
+    }
+
+    .card h3 {
+      margin-top: 0;
+      margin-bottom: 0.4rem;
     }
 
     .pricing-wrapper {
@@ -209,6 +244,34 @@
       background: var(--yellow-dark);
     }
 
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+    }
+
+    @media (max-width: 780px) {
+      .two-col {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .check-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      font-size: 0.9rem;
+    }
+
+    .check-list li {
+      margin-bottom: 0.4rem;
+    }
+
+    .check {
+      font-weight: 700;
+      margin-right: 0.3rem;
+    }
+
     footer {
       background: #111;
       color: #aaa;
@@ -241,15 +304,21 @@
   <div class="hero-inner">
     <div>
       <img src="logo.png" alt="BoxLoop Logo" />
-      <h1>Cardboard pickup,<br><span>every Tuesday and Thursday.</span></h1>
-      <p>No more overflowing recycling bins or piles of boxes by the door.</p>
-      <p>For a single monthly price, we collect your flattened cardboard from your doorstep twice a week and keep it in the recycling loop.</p>
-      <p class="hero-highlight">Fixed collection days · Tuesdays & Thursdays · £24.95 / month</p>
+      <h1>We collect your cardboard<br><span>from your doorstep twice a week.</span></h1>
+      <p>BoxLoop is a simple subscription service that takes away your cardboard so you don’t have to stuff bins, cut boxes down, or drive to the tip.</p>
+
+      <ul class="hero-list">
+        <li><span class="hero-dot"></span><span>Doorstep cardboard collection service.</span></li>
+        <li><span class="hero-dot"></span><span>We come every <strong>Tuesday & Thursday</strong>.</span></li>
+        <li><span class="hero-dot"></span><span>All for <strong>£24.95 / month</strong>, cancel anytime.</span></li>
+      </ul>
+
+      <p class="hero-highlight">Perfect for homes that get lots of deliveries and are tired of box pile-ups.</p>
     </div>
 
     <div class="form-card" id="waitlist">
       <h2>Join the BoxLoop Waitlist</h2>
-      <p>Register your interest and be first to know when collections start on your street.</p>
+      <p>Tell us you’re interested and we’ll email you when collections start in your street, with a link to join.</p>
 
       <button
         class="btn-primary"
@@ -259,25 +328,73 @@
       >
         Open Waitlist Form
       </button>
+      <p style="font-size:0.8rem; margin-top:0.5rem; color:#555;">
+        No payment now – this just adds you to the priority list.
+      </p>
     </div>
   </div>
 </section>
 
 <section class="section">
   <h2>How BoxLoop Works</h2>
+  <p class="lead">We’re a collection service, not a bin. You stack the cardboard, we come and take it away on set days.</p>
 
   <div class="grid-3">
     <div class="card">
-      <h3>1. Fixed collection days</h3>
-      <p>We run regular routes every Tuesday and Thursday. You’ll know exactly when we’re coming.</p>
+      <h3>1. You flatten & stack</h3>
+      <p>Break down your cardboard boxes and stack them neatly in one place – by your front door, garage, or agreed pickup spot.</p>
     </div>
     <div class="card">
-      <h3>2. Leave your cardboard out</h3>
-      <p>Flatten and stack your boxes, then leave them in your usual pickup spot before your collection time.</p>
+      <h3>2. We collect on Tue & Thu</h3>
+      <p>Our driver comes round every Tuesday and Thursday, loads your cardboard into the van, and leaves your space clear again.</p>
     </div>
     <div class="card">
-      <h3>3. We collect & recycle</h3>
-      <p>We load your cardboard, take it to licensed recycling facilities, and keep it out of landfill.</p>
+      <h3>3. We recycle it properly</h3>
+      <p>We take your cardboard to licensed recycling facilities so it stays out of landfill and goes back into the loop.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <h2>Who is BoxLoop for?</h2>
+  <p class="lead">If cardboard is constantly building up at home, this service is designed for you.</p>
+
+  <div class="grid-3">
+    <div class="card">
+      <h3>Busy households</h3>
+      <p>Families and sharers who get lots of online deliveries and are fed up with boxes piling up in the hallway or by the bin.</p>
+    </div>
+    <div class="card">
+      <h3>Home businesses</h3>
+      <p>People running small online shops from home who need regular, reliable cardboard removal without hiring a full commercial waste contract.</p>
+    </div>
+    <div class="card">
+      <h3>Anyone who hates the tip</h3>
+      <p>If you’re tired of filling the car with boxes and driving to the tip, BoxLoop saves you the time and hassle.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <h2>What we collect (and what we don’t)</h2>
+  <div class="two-col">
+    <div class="card">
+      <h3>✅ We collect</h3>
+      <ul class="check-list">
+        <li><span class="check">•</span>Clean, dry cardboard boxes</li>
+        <li><span class="check">•</span>Parcel and packaging cardboard</li>
+        <li><span class="check">•</span>Flattened moving boxes</li>
+        <li><span class="check">•</span>Reasonable household volumes</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>🚫 We don’t collect</h3>
+      <ul class="check-list">
+        <li><span class="check">•</span>General household rubbish</li>
+        <li><span class="check">•</span>Food waste or black bags</li>
+        <li><span class="check">•</span>Wet, soiled or greasy cardboard</li>
+        <li><span class="check">•</span>Hazardous or electrical items</li>
+      </ul>
     </div>
   </div>
 </section>
@@ -285,7 +402,7 @@
 <section class="section">
   <div class="pricing-wrapper">
     <h2>One simple monthly price</h2>
-    <p>No tiers, no confusion. Just reliable cardboard collections every Tuesday and Thursday.</p>
+    <p class="lead">No tiers, no confusion. Just regular cardboard removal so your home stays clear and your recycling bin stops overflowing.</p>
 
     <div class="single-plan">
       <h3>BoxLoop Monthly</h3>
@@ -295,7 +412,7 @@
         <li>Doorstep cardboard pickup</li>
         <li>Clean, dry cardboard only</li>
         <li>Recycled at licensed facilities</li>
-        <li>Cancel anytime</li>
+        <li>Cancel anytime – no long contracts</li>
       </ul>
       <button
         type="button"
